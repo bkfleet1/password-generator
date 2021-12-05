@@ -1,4 +1,13 @@
 // Assignment code here
+/* incSpecialChar are special characters supported all of the following organizations: OWASP, Oracle Identity Manager and Microsoft Active Directory. */
+/* exSpecialChars are special characters not supported by one or more of the following organizations: OWASP, Oracle Identity Manager and Microsoft Active Directory. */
+var incSpecialChars="-!#$%()/:?@[\]^_{}~+.";
+var exSpecialChars="' &*,;`|’”<=>";
+var alphaUpper="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var alphaLower="abcdefghijklmnopqrstuvwxyz";
+var numbers="0123456789";
+
+
 
 
 // Get references to the #generate element
