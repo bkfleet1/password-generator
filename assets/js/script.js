@@ -26,19 +26,45 @@ var specialChars="-!#$%()/:?@[\]^_{}~+.";
 
 
 
+
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
+
+
+
 // Write password to the #password input
 function writePassword() {
+  passLength()
+};
 
+  
+function passLength() {
+    var passLength= 0;
+    passLength = prompt("Passwords must be a minimum of 8 and maximum of 128 characters. How many characters do you want in your password?")
+    confirm ("Are certain you want a password of " + passLength + " characters in lenght?"); {
+    if (passLength >= 8 && passLength <= 128) {
+      console.log("passLength",passLength)
+    } else if (passLength <= 8) {
+        alert("You've requested a password of " + passLength + " character(s), which is less than 8 characters.")
+        writePassword()
+    } else { 
+        alert("You've requested a password of " + passLength + " character(s), which is more than 128 characters.")
+        writePassword()
+    }
+    }
+  };
+       
+     
+
+/*
 
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-  console.log(writePassword);
-}
+
+} */
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
