@@ -23,8 +23,9 @@ var numbers="0123456789";
 var alphaLower="abcdefghijklmnopqrstuvwxyz";
 var alphaUpper="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var specialChars="-!#$%()/:?@[]\^_{}~+.";
-var passLength = "";
+var passLength = 0;
 var passChars = "";
+var password = "";
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -39,20 +40,19 @@ function writePassword() {
 
 
 function passLen() {
-  passLength = prompt("Passwords must be a minimum of 8 and maximum of 128 characters. How many characters do you want in your password?");
+  passLength = parseInt(prompt("Passwords must be a minimum of 8 and maximum of 128 characters. How many characters do you want in your password?"));
   if (passLength < 8 || passLength > 128) {
     alert("Password invalid. Please try again.");
     stop;
-  } else if 
+  } else if
     (confirm ("Are certain you want a password of " + passLength + " characters in lenght?")) {
-    console.log("passLength",passLength);
-    charPrompts ()
-  } else
-    passLength = "";
-    stop;
+    console.log(passLength);
+    charPrompts()
+   }
+   else stop;
   };
 
-function charPrompts () {
+function charPrompts() {
   if (confirm ("Include numbers in password?")) {
     passChars = passChars + numbers;
     console.log(passChars);
@@ -74,8 +74,16 @@ function charPrompts () {
       charPrompts();
     }
   }
+  generatePassword();
 };
 
+function generatePassword() {
+for (i = 0; i <= passLength; i++) {
+  passLoop = passChars.charAt(Math.floor(Math.random() * (passLength-1)));
+  password = password + passLoop;
+  console.log(password);
+  }
+};
 
 /*
 
