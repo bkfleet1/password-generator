@@ -23,12 +23,14 @@ var numbers="0123456789";
 var alphaUpper="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var alphaLower="abcdefghijklmnopqrstuvwxyz";
 var specialChars="-!#$%()/:?@[\]^_{}~+.";
-
+var passLength = 0;
+var passLengthConfirm = "false";
+var passChars = "";
+var numChars = "";
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
-var passLength = 0;
-var passLengthConfirm = "false";
+
 
 
 
@@ -41,25 +43,24 @@ function writePassword() {
 function passLen() {
   passLength = prompt("Passwords must be a minimum of 8 and maximum of 128 characters. How many characters do you want in your password?");
   if (passLength < 8 || passLength > 128) {
-    alert("Password invalid!");
-   } else { 
-  console.log("passLength",passLength);
-  confPass();
-   }
-};
-
-function confPass() {
-  passLengthConfirm = confirm ("Are certain you want a password of " + passLength + " characters in lenght?");
-  console.log("passLengthConfirm",passLengthConfirm);
-  setPassLen();
+    alert("Password invalid. Please try again.");
+    stop;
+  } else if 
+    (confirm ("Are certain you want a password of " + passLength + " characters in lenght?")) {
+    console.log("passLength",passLength);
+    charPrompts ()
+  } else
+    passLength = 0;
+    stop;
   };
 
-function setPassLen () {
-  if (passLengthConfirm == "false" || passLengthConfirm == false) {
-    passLength = 0;
-  } else 
-  alert("pass length is " + passLength);
+function charPrompts () {
+  if (confirm ("Include numbers in password?")) {
+    numChars = numbers;
+    console.log(numChars);
+  }
 };
+
 
 /*
 
