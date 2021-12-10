@@ -20,13 +20,11 @@
 // Assignment code here
 
 var numbers="0123456789";
-var alphaUpper="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var alphaLower="abcdefghijklmnopqrstuvwxyz";
-var specialChars="-!#$%()/:?@[\]^_{}~+.";
-var passLength = 0;
-var passLengthConfirm = "false";
+var alphaUpper="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var specialChars="-!#$%()/:?@[]\^_{}~+.";
+var passLength = "";
 var passChars = "";
-var numChars = "";
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -50,14 +48,31 @@ function passLen() {
     console.log("passLength",passLength);
     charPrompts ()
   } else
-    passLength = 0;
+    passLength = "";
     stop;
   };
 
 function charPrompts () {
   if (confirm ("Include numbers in password?")) {
-    numChars = numbers;
-    console.log(numChars);
+    passChars = passChars + numbers;
+    console.log(passChars);
+  }
+  if (confirm ("Include lower case letters in password?")) {
+    passChars = passChars + alphaLower;
+    console.log(passChars);
+  }
+  if (confirm ("Include upper case letters in password?")) {
+    passChars = passChars + alphaUpper;
+    console.log(passChars);
+  }
+  if (confirm ("Include special characters in password?")) {
+    passChars = passChars + specialChars;
+    console.log(passChars);
+  }
+  if (passChars == "" || passChars == null ) {
+    if (confirm("Passwords requires at least one of the following: numbers, lower case letter, upper case letters, and / or special characters. It appears you did not select any. Click OK to try again!")) {
+      charPrompts();
+    }
   }
 };
 
