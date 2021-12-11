@@ -81,5 +81,6 @@ for (i = 1; i <= passLength; i++) {
   password = password + passLoop;
   console.log(password);
   }
-  alert("Your password is " + password);
+//  alert("Your password is " + password);
+document.getElementById("password").textContent=password;
 };
