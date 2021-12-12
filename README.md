@@ -158,7 +158,7 @@ The password length confirmation is illustrated below.
 [password length confirmation](./assets/images/passlength3.png)
 
 ## Data Type Prompts
-The password generator offers four data types that can be used in the generation of a password - numbers, lower case letters, upper case letters, and special characters. The special characters offered include "-!#$%()/:?@[]\^_{}~+.", which are supported by OWASP, Oracle Identity Manager and Microsoft Active Directory. The application will prompt the user for the types of data to include in the generated password, which is defined in the charPrompts() function shown below.
+The password generator offers four data types that can be used in the generation of a password - numbers, lower case letters, upper case letters, and special characters. The special characters offered include "-!#$%()/:?@[]\^_{}~+.", which are supported by OWASP, Oracle Identity Manager and Microsoft Active Directory. Using a series of confirm() method contained in the charPrompts() function, the application prompts the user to select the types of data to include in the generated password. The screencapture below contains the charPrompts() function with data confirmation methods.
 [data type prompts](./assets/images/charprompts.png)
 
 The following images illustrate the data type prompts presented to the user. Included in the data type prompt is a message "Include DATA TYPE in password?" If the user clicks OK, the data type will be included in the pool of characters that the application will randomly select from to generate a password. If the user clicks CANCEL, the data type will be excluded from the pool of characters to generate a password.
