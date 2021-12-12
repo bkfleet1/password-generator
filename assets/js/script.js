@@ -29,25 +29,28 @@ var password = "";
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
-// Event listener to generate button
+// Event listener for #generate button, which launches passwordLength().
 generateBtn.addEventListener("click", passwordLength);
 
 
-// Prompt & verify password length
+// Prompts & verifies user's desired password length
 function passwordLength() {
-  passLength = parseInt(prompt("Passwords must be a minimum of 8 and maximum of 128 characters. How many characters do you want in your password?"));
-  if (passLength < 8 || passLength > 128) {
-    alert("Password invalid. Please try again.");
+  passLength = parseInt(prompt("Passwords must be a minimum of 8 and maximum of 128 characters. Please enter the number of characters you want in your password in the field below and click OK."));
+  if (isNaN(passLength)) {
+    alert("The length of a password must be a number between 8 - 128. You did not enter a number. Please try again.");
+    stop;  
+  } else if (passLength < 8 || passLength > 128 ) {
+    alert("The length of a password must be a number between 8 - 128. Please try again.");
     stop;
   } else if
     (confirm ("Are certain you want a password of " + passLength + " characters in lenght?")) {
     console.log(passLength);
-    charPrompts()
+    charPrompts();
    }
    else stop;
   };
 
- // Prompt for character types to include in password 
+ // Prompts user for character types to be included in password 
 function charPrompts() {
   if (confirm ("Include numbers in password?")) {
     passChars = passChars + numbers;
@@ -73,14 +76,14 @@ function charPrompts() {
   generatePassword();
 };
 
-//Generate random password based on user selecter character types and paword length
-//password is provided in a prompt
+// Generates random password based on characters types selected by the user in charPrompts() and password length in passwordLength()
 function generatePassword() {
 for (i = 1; i <= passLength; i++) {
   passLoop = passChars.charAt(Math.floor(Math.random() * (passLength)));
   password = password + passLoop;
   console.log(password);
   }
-//  alert("Your password is " + password);
+
+  // Publishes the generated password to user's screen.
 document.getElementById("password").textContent=password;
 };
